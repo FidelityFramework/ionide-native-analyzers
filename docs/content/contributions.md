@@ -10,7 +10,7 @@ category: docs
 Hi there! Thank you for considering to contribute to this community project!  
 We hope this project can serve as a vessel to proto-type your ideas and bring them easily into your workflow. 
 
-The main goal of this project is to have a reference implementation for analyzers built with the [Ionide SDK](https://ionide.io/FSharp.Analyzers.SDK/).
+The main goal of this project is to have a reference implementation for analyzers built with the [Ionide SDK](https://fidelity.dev/FSharp.Analyzers.SDK/).
 
 ## What kind of contributions do we accept?
 
@@ -51,7 +51,7 @@ We try to split the analyzers up into several categories:
 - `quality`
 
 Add your analyzer the directory that makes the most sense. Ask us if you are unsure.  
-Next start writing your [first analyzer](https://ionide.io/FSharp.Analyzers.SDK/content/Getting%20Started%20Writing.html#First-analyzer).
+Next start writing your [first analyzer](https://fidelity.dev/FSharp.Analyzers.SDK/content/Getting%20Started%20Writing.html#First-analyzer).
 
 Please use the *next available code* for your messages, we currently do not have any elaborate system in place for the message codes.
 

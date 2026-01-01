@@ -14,12 +14,12 @@
         <PackageTags>F#, fsharp, analyzers, fsharp-analyzer</PackageTags>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <RepositoryUrl>https://github.com/ionide/ionide-analyzers</RepositoryUrl>
+        <RepositoryUrl>https://github.com/ionide/fidelity-analyzers</RepositoryUrl>
         <DebugType>embedded</DebugType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageProjectUrl>https://ionide.io/ionide-analyzers/</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/ionide/ionide-analyzers/blob/main/CHANGELOG.md</PackageReleaseNotes>
+        <PackageProjectUrl>https://ionide.io/fidelity-analyzers/</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/ionide/fidelity-analyzers/blob/main/CHANGELOG.md</PackageReleaseNotes>
         <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
         <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
         <WarningsAsErrors>FS0025</WarningsAsErrors>

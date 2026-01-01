@@ -1,4 +1,4 @@
-# Ionide.Analyzers
+# Fidelity.Analyzers
 
 Welcome to the Ionide Analyzers project.
 
@@ -22,7 +22,7 @@ Of course, the `--analyzers-path` is a bit tricky. We need to download the binar
 You can add a NuGet reference to your project:
 
 ```xml
-<PackageReference Include="Ionide.Analyzers" Version="0.1.1">
+<PackageReference Include="Fidelity.Analyzers" Version="0.1.1">
   <PrivateAssets>all</PrivateAssets>
   <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 </PackageReference>

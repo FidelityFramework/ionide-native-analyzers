@@ -6,7 +6,7 @@ category: docs
 ---
 # Release process
 
-A new release happens automatically when the version in the [Changelog](https://github.com/ionide/ionide-analyzers/blob/main/CHANGELOG.md) was increased.  
+A new release happens automatically when the version in the [Changelog](https://github.com/ionide/fidelity-analyzers/blob/main/CHANGELOG.md) was increased.  
 We verify the next version doesn't exist yet on NuGet, and if that is the case, we publish the `*.nupkg` package and create a new GitHub release.
 
 ## Dry run
