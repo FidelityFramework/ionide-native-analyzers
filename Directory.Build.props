@@ -1,25 +1,28 @@
 <Project>
     <PropertyGroup>
+        <!-- Fidelity version - keep in sync across all Fidelity packages -->
+        <Version>0.1.0</Version>
+        <PackageVersion>$(Version)</PackageVersion>
         <!-- Set up version and package release note generation from this changelog. -->
         <ChangelogFile>$(MSBuildThisFileDirectory)CHANGELOG.md</ChangelogFile>
         <!-- Common packaging properties for all packages in this repo -->
         <Company>Ionide</Company>
-        <Authors>David Schaefer, Florian Verdonck</Authors>
+        <Authors>David Schaefer, Florian Verdonck, Ionide Contributors</Authors>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Description>
-            Community F# analyzers
+            F# analyzers for native F# development with the Fidelity framework
         </Description>
         <Copyright>Copyright Ionide © $([System.DateTime]::UtcNow.Year)</Copyright>
-        <PackageTags>F#, fsharp, analyzers, fsharp-analyzer</PackageTags>
+        <PackageTags>F#, fsharp, analyzers, fsharp-analyzer, native, fidelity</PackageTags>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <RepositoryUrl>https://github.com/ionide/fidelity-analyzers</RepositoryUrl>
+        <RepositoryUrl>https://github.com/FidelityFramework/ionide-native-analyzers</RepositoryUrl>
         <DebugType>embedded</DebugType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageProjectUrl>https://ionide.io/fidelity-analyzers/</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/ionide/fidelity-analyzers/blob/main/CHANGELOG.md</PackageReleaseNotes>
+        <PackageProjectUrl>https://github.com/FidelityFramework/ionide-native-analyzers</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/FidelityFramework/ionide-native-analyzers/blob/main/CHANGELOG.md</PackageReleaseNotes>
         <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
         <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
         <WarningsAsErrors>FS0025</WarningsAsErrors>

@@ -1,20 +1,20 @@
-# Fidelity.Analyzers
+# Ionide.FsNative.Analyzers
 
 **F# Analyzers for Native F# Development**
 
-[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Fidelity.Analyzers?style=flat-square)](https://www.nuget.org/packages/Fidelity.Analyzers/absoluteLatest)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Ionide.FsNative.Analyzers?style=flat-square)](https://www.nuget.org/packages/Ionide.FsNative.Analyzers/absoluteLatest)
 
 A fork of [Ionide.Analyzers](https://github.com/ionide/ionide-analyzers) enhanced for native F# development with the Fidelity framework.
 
 ## Overview
 
-Fidelity.Analyzers provides F# analyzers tailored for native compilation scenarios. It includes all standard Ionide analyzers plus additional checks relevant to native F# development.
+Ionide.FsNative.Analyzers provides F# analyzers tailored for native compilation scenarios. It includes all standard Ionide analyzers plus additional checks relevant to native F# development.
 
 ## Running these analyzers
 
 To run these analyzers you need:
 1. The [fsharp-analyzers tool](https://www.nuget.org/packages/fsharp-analyzers)
-2. This [NuGet package](https://www.nuget.org/packages/Fidelity.Analyzers/absoluteLatest)
+2. This [NuGet package](https://www.nuget.org/packages/Ionide.FsNative.Analyzers/absoluteLatest)
 
 Learn more on getting started in the [SDK documentation](https://ionide.io/FSharp.Analyzers.SDK/content/Getting%20Started%20Using.html).
 
@@ -22,12 +22,12 @@ Learn more on getting started in the [SDK documentation](https://ionide.io/FShar
 
 | Project | Role |
 |---------|------|
-| [Firefly](https://github.com/FidelityFramework/firefly) | AOT compiler |
+| [Firefly](https://github.com/FidelityFramework/Firefly) | AOT compiler |
 | [FSNAC](https://github.com/FidelityFramework/FsNativeAutoComplete) | Language server |
-| [Fidelity-VSCode](https://github.com/FidelityFramework/fidelity-vscode-fsharp) | VS Code extension |
-| [Fidelity-Vim](https://github.com/FidelityFramework/fidelity-vim-fsharp) | Vim/Neovim plugin |
-| **Fidelity.Analyzers** | This package |
-| [Alloy](https://github.com/FidelityFramework/alloy) | Native standard library |
+| [Ionide.FsNative-VSCode](https://github.com/FidelityFramework/ionide-vscode-fsnative) | VS Code extension |
+| [Ionide.FsNative-Vim](https://github.com/FidelityFramework/Ionide-vim-fsnative) | Vim/Neovim plugin |
+| **Ionide.FsNative.Analyzers** | This package |
+| [Alloy](https://github.com/FidelityFramework/Alloy) | Native standard library |
 
 ## Contributing
 
