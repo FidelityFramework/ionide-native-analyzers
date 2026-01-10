@@ -19,6 +19,9 @@
     <Compile Include="Performance\CombinePipedModuleFunctionsAnalyzerTests.fs" />
     <Compile Include="Performance\EqualsNullAnalyzerTests.fs" />
     <Compile Include="Suggestion\StructDiscriminatedUnionAnalyzerTests.fs" />
+    <Compile Include="NativeConstraint\NullLiteralAnalyzerTests.fs" />
+    <Compile Include="NativeConstraint\ObjTypeAnalyzerTests.fs" />
+    <Compile Include="NativeConstraint\BclUsageAnalyzerTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
