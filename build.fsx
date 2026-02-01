@@ -23,7 +23,7 @@ open Humanizer
 let cleanDirs globExpr = (!!globExpr) |> Shell.cleanDirs
 
 let packStage =
-    stage "pack" { run "dotnet pack ./src/Ionide.Analyzers/Ionide.Analyzers.fsproj -c Release -o bin" }
+    stage "pack" { run "dotnet pack ./src/Lattice.Analyzers/Lattice.Analyzers.fsproj -c Release -o bin" }
 
 pipeline "Build" {
     workingDir __SOURCE_DIRECTORY__
@@ -45,8 +45,8 @@ pipeline "Build" {
     }
     stage "restore" { run "dotnet restore" }
     stage "build" {
-        run "dotnet restore ionide-analyzers.sln"
-        run "dotnet build --no-restore -c Release ionide-analyzers.sln"
+        run "dotnet restore lattice-analyzers.sln"
+        run "dotnet build --no-restore -c Release lattice-analyzers.sln"
     }
     stage "test" { run "dotnet test --no-restore --no-build -c Release" }
     packStage
@@ -113,7 +113,7 @@ let releaseNuGetPackage (ctx: CommandRunner) (version: SemanticVersion, _, _) =
 
         let! result =
             ctx.RunCommand
-                $"dotnet nuget push bin/Ionide.Analyzers.%s{string version}.nupkg --api-key {key} --source \"https://api.nuget.org/v3/index.json\""
+                $"dotnet nuget push bin/Lattice.Analyzers.%s{string version}.nupkg --api-key {key} --source \"https://api.nuget.org/v3/index.json\""
 
         match result with
         | Error _ -> return 1
@@ -131,7 +131,7 @@ type GithubRelease =
 
 let mapToGithubRelease (v: SemanticVersion, d: DateTime, cd: ChangelogData option) =
     match cd with
-    | None -> failwith "Each Ionide.Analyzers release is expected to have at least one section."
+    | None -> failwith "Each Lattice.Analyzers release is expected to have at least one section."
     | Some cd ->
 
     let version = $"{v.Major}.{v.Minor}.{v.Patch}"
@@ -214,7 +214,7 @@ let getReleaseNotes (ctx: CommandRunner) (currentRelease: GithubRelease) (previo
 
 {authorMsg}
 
-[https://www.nuget.org/packages/Ionide.Analyzers/{currentRelease.Version}](https://www.nuget.org/packages/Ionide.Analyzers/{currentRelease.Version})
+[https://www.nuget.org/packages/Lattice.Analyzers/{currentRelease.Version}](https://www.nuget.org/packages/Lattice.Analyzers/{currentRelease.Version})
     """
     }
 
@@ -235,7 +235,7 @@ let mkGitHubRelease
         ctx.LogWhenDryRun $"NOTES:\n%s{notes}"
         let noteFile = Path.GetTempFileName()
         File.WriteAllText(noteFile, notes)
-        let file = $"./bin/Ionide.Analyzers.%s{ghReleaseInfo.Version}.nupkg"
+        let file = $"./bin/Lattice.Analyzers.%s{ghReleaseInfo.Version}.nupkg"
 
         let! releaseResult =
             ctx.RunCommand
@@ -280,7 +280,7 @@ pipeline "Release" {
 
                 let currentVersion = getLatestChangeLogVersion ()
                 let currentVersionText, _, _ = currentVersion
-                let! latestNugetVersion = getLatestPublishedNugetVersion "Ionide.Analyzers" |> Async.AwaitTask
+                let! latestNugetVersion = getLatestPublishedNugetVersion "Lattice.Analyzers" |> Async.AwaitTask
                 match latestNugetVersion with
                 | None ->
                     let! nugetResult = releaseNuGetPackage commandRunner currentVersion
@@ -355,14 +355,14 @@ pipeline "NewAnalyzer" {
 
             let analyzerFile =
                 __SOURCE_DIRECTORY__
-                </> $"src/Ionide.Analyzers/%s{category}/%s{analyzerName}.fs"
+                </> $"src/Lattice.Analyzers/%s{category}/%s{analyzerName}.fs"
                 |> FileInfo
 
             if not analyzerFile.Directory.Exists then
                 analyzerFile.Directory.Create()
 
             let analyzerContent =
-                $"""module Ionide.Analyzers.%s{category}.%s{analyzerName}
+                $"""module Lattice.Analyzers.%s{category}.%s{analyzerName}
 
 open System.Collections.Generic
 open FSharp.Compiler.Symbols
@@ -421,11 +421,11 @@ let %s{name}EditorAnalyzer: Analyzer<EditorContext> =
                     sibling.AddAfterSelf(XElement.Parse $"<Compile Include=\"%s{filenameWithoutExtension}.fs\" />")
                     sibling.Document.Save fsproj
 
-            addCompileItem "src/Ionide.Analyzers/Ionide.Analyzers.fsproj" (sprintf "%s\\%s" category analyzerName)
+            addCompileItem "src/Lattice.Analyzers/Lattice.Analyzers.fsproj" (sprintf "%s\\%s" category analyzerName)
 
             let analyzerTestsFile =
                 __SOURCE_DIRECTORY__
-                </> $"tests/Ionide.Analyzers.Tests/%s{category}/%s{analyzerName}Tests.fs"
+                </> $"tests/Lattice.Analyzers.Tests/%s{category}/%s{analyzerName}Tests.fs"
                 |> FileInfo
 
             if not analyzerTestsFile.Directory.Exists then
@@ -434,14 +434,14 @@ let %s{name}EditorAnalyzer: Analyzer<EditorContext> =
             let tripleQuote = "\"\"\""
 
             let analyzerTestsContent =
-                $"""module Ionide.Analyzers.Tests.%s{category}.%s{analyzerName}Tests
+                $"""module Lattice.Analyzers.Tests.%s{category}.%s{analyzerName}Tests
 
 open NUnit.Framework
 open FSharp.Compiler.CodeAnalysis
 open FSharp.Compiler.Text.Range
 open FSharp.Analyzers.SDK
 open FSharp.Analyzers.SDK.Testing
-open Ionide.Analyzers.%s{category}.%s{analyzerName}
+open Lattice.Analyzers.%s{category}.%s{analyzerName}
 
 let mutable projectOptions: FSharpProjectOptions = FSharpProjectOptions.zero
 
@@ -471,7 +471,7 @@ let ``first test here`` () =
             File.WriteAllText(analyzerTestsFile.FullName, analyzerTestsContent)
 
             addCompileItem
-                "tests/Ionide.Analyzers.Tests/Ionide.Analyzers.Tests.fsproj"
+                "tests/Lattice.Analyzers.Tests/Lattice.Analyzers.Tests.fsproj"
                 $"%s{category}\\%s{analyzerName}Tests"
             printfn "Created %s" analyzerTestsFile.FullName
 
