@@ -1,38 +1,14 @@
-# Lattice.Analyzers
+# lattice-analyzers
 
-[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Lattice.Analyzers?style=flat-square)](https://www.nuget.org/packages/Lattice.Analyzers/absoluteLatest)
+A hard fork of [ionide-analyzers](https://github.com/ionide/ionide-analyzers), relabelled. The twelve
+analyzers run over the F# Compiler Service typed tree and emit `IONIDE-0nn` messages linking to ionide.io.
 
-F# analyzers for native and polyglot systems programming with [FSharp.Analyzers.SDK](https://ionide.io/FSharp.Analyzers.SDK/).
+**Disposition: retired.** Under the consumer contract (`~/repos/clef/docs/fidelity/phg/Lattice_Consumer_Contract.md`),
+an analyzer is not a category: a rule over program semantics is either a display of facts the Program
+Semantic Graph settles (a query the Lattice server answers) or new semantics (a Baker recipe or obligation in
+the Clef Compiler Service). Of the twelve rules here, four are void under the native type universe (null
+comparison, `System.String`, the CLR list, `--langversion`), two suggest residence the graph settles as
+literal layout, and the rest are graph queries. The analyzer SDK contract, a typed tree handed to third-party
+code, has no place under the transport rule.
 
-## Heritage
-
-This project is a hard fork of [Ionide Analyzers](https://github.com/ionide/ionide-analyzers), part of the excellent [Ionide](https://ionide.io/) F# IDE tooling ecosystem created by Krzysztof Cieślak.
-
-Lattice extends Ionide's foundation to support polyglot systems programming with F# Native, MLIR, LLVM, F*, Lua, and C. The name "Lattice" represents the chemical progression from individual ions to organized crystal lattices—honoring the foundation while extending to polyglot systems.
-
-See [IONIDE_HERITAGE.md](IONIDE_HERITAGE.md) for complete attribution details. 
-
-## Running these analyzers
-
-These analyzers are designed for F# Native projects (.fidproj) and will be integrated into the Firefly compiler toolchain and Lattice IDE extensions.
-
-For standalone usage (when available), you will need:
-- The `fsnative-analyzers` CLI tool (planned)
-- This [NuGet package](https://www.nuget.org/packages/Lattice.Analyzers/absoluteLatest)
-
-Integration is based on the [FSharp.Analyzers.SDK](https://ionide.io/FSharp.Analyzers.SDK/) framework.
-
-## Getting started contributing
-
-See our documentation for contribution guidelines.
-
-## Running the documentation
-
-Run `dotnet fsi build.fsx -p Docs` to run the documentation locally.
-
-## Acknowledgments
-
-We are deeply grateful to:
-- **Krzysztof Cieślak** for creating Ionide and the original Ionide Analyzers
-- The entire Ionide community for demonstrating what great F# tooling can be
-- The FSharp.Analyzers.SDK team for the excellent analyzer framework
+Upstream license and attribution: see `LICENSE.md`. ionide-analyzers is the work of the Ionide community.
